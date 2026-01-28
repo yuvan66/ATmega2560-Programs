@@ -1,12 +1,11 @@
-//#include "yuvan.h"
-#include "yuvan2.h"
+#include "latest.h"
 int main()
 {
-  port_def(0,0xFF,NULL);
-  port_def(1,0x00,0xFF);
-  // portf_set(0xFF);
-  // portk_set(0x00);
-  // portk_out(0xFF);
+  // port_def(0,0xFF,NULL);
+  // port_def(1,0x00,0xFF);
+  portf_set(0xFF);
+  portk_set(0x00);
+  portk_out(0xFF);
   while (1)
   {
     volatile int i;

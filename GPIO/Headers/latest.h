@@ -16,7 +16,7 @@ void portf_out(volatile uint8_t fdat) //ouput data for PORTF
   portf_dat = fdat;
 }
 
-uint8_t disp_SS (volatile uint8_t x)
+void disp_SS (volatile uint8_t x)
 {
   volatile uint8_t a[10] = {0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x6f};
   portf_dat = a[x];
@@ -68,5 +68,26 @@ void r2l() // led chaser right-to-left for PORTF
     {
       portf_out(1<<i);
       delay_y(1);
+    }
+}
+
+void count(double x)
+{
+  for (int i=0;i<10;i++)
+    {
+      for (int j=0;j<10;j++)
+      {
+        long int a = 0;
+        while(a<(x*10000))
+        {
+          portk_set(0b00000001);
+          portk_out(0x01);
+          disp_SS(i);
+          portk_set(0b00000010);
+          portk_out(0x02);
+          disp_SS(j);
+          a++;
+        }
+      }
     }
 }

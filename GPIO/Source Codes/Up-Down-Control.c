@@ -1,3 +1,7 @@
+//This is not a final proper working code. It is just for demonstration of Up-Down Control using two buttons.
+//One button is used to increment the value and other button is used to decrement the value.
+
+
 #include "latest.h"
 int main()
 {

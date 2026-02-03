@@ -4,6 +4,8 @@
 #define portb_dat (*(volatile uint8_t *)0x25)
 #define portc_dir (*(volatile uint8_t *)0x27)
 #define portc_dat (*(volatile uint8_t *)0x28)
+#define portd_dir (*(volatile uint8_t *)0x2A)
+#define portd_dat (*(volatile uint8_t *)0x2B)
 #define portf_dir (*(volatile uint8_t *)0x30)
 #define portf_dat (*(volatile uint8_t *)0x31)
 #define portk_dir (*(volatile uint8_t *)0x107)
@@ -65,6 +67,18 @@ uint8_t portc_r() //func. to return PORTC input data
   volatile uint8_t *portc_rd;
   portc_rd = 0x26;
   return (*portc_rd);
+}
+
+
+// PORTD __--__ Functions __--__ DIR,DAT
+void portd_set(uint8_t ddir) //set direction to PORTD
+{
+  portd_dir = ddir;
+}
+
+void portd_out(volatile uint8_t ddat) //ouput data for PORTD
+{
+  portd_dat = ddat;
 }
 
 

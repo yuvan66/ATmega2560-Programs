@@ -62,7 +62,7 @@ void config_pin(uint8_t x, uint8_t y, uint8_t z) // config_pin(port_name, pin, s
 	}
 	else
 	{
-		*DDR[x] &= ~(0U<<y);
+		*DDR[x] &= ~(1U<<y);
 	}
 }
 
@@ -85,7 +85,7 @@ void pin_write(uint8_t x, uint8_t y, uint8_t z) // pin_write(port_name, pin, sta
 	}
 	else
 	{
-		*DAT[x] &= ~(0U<<y);
+		*DAT[x] &= ~(1U<<y);
 	}
 }
 
